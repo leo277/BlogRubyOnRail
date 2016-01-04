@@ -1,0 +1,27 @@
+<h1>Our Blog post: EDIT MODE</h1>
+
+<%= form_for @post do |f| %>
+
+  <!--check if there are any error when creating new form after
+  validation -->
+  <% if @post.errors.any? %>
+    <h2>Error: </h2>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <p>
+    <%= f.label :title %> <br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :content %> <br />
+    <%= f.text_field :content %>
+  </p>
+  <p>
+    <%= f.submit "Update the post" %>
+  </p>
+<% end %>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% flash.each do |key, value| %>
+<!-- in this case, key is the :notice  (type),
+value is the message of the key (value of notice) -->
+  <p><%= value %></p>
+<% end %>
+
+
+<!--Without any arguments, yield will render the template of the current controller/action. So if you're on the cars/show page, it will render views/carts/show.html.erb.-->
+
+
+<!-- yield is whatever is display on the actual page, 
+if you want to display :notice flash message, you can 
+add that above the yield-->
+<%= yield %>
+
+</body>
+</html>

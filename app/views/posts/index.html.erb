@@ -1,0 +1,26 @@
+<h1>Our Blog post</h1>
+
+<% @posts.each do |post| %>
+  <!--link_to <what to display>, <where it link_to>
+  rails will link "post" to appropriate "show" for us-->
+  <h2><%= link_to post.title, post %></h2>
+  <p><%= post.content %></p>
+
+  <!--create a edit link
+  and pass in the post variable you want to edit
+  -->
+
+  <p><%= link_to "Edit", edit_post_path(post) %> | 
+  <%= link_to "Delete", post, :confirm => "Are you Sure?", 
+  :method => :delete %></p>
+  <!-- :confirm is a javascript popup, requires user to have
+    java installed-->
+  <hr>
+<% end %>
+
+<p><%= link_to "Add a new Post", new_post_path %></p>
+<!-- to know the path of #new action, do rake routes, and 
+see the prefix column, and append _path at the end
+eg: the path for new is new_post_path   -->
+
+
